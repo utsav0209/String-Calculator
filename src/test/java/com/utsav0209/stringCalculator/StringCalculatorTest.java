@@ -3,6 +3,7 @@ package com.utsav0209.stringCalculator;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -54,4 +55,8 @@ public class StringCalculatorTest {
         }
     }
 
+    @AfterClass
+    public static void getCallsCount(){
+        assertEquals(testCasesList().size(), stringCalculator.getCallsCount());
+    }
 }
