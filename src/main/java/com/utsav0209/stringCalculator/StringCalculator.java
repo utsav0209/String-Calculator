@@ -1,6 +1,8 @@
 package com.utsav0209.stringCalculator;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
 
@@ -25,11 +27,21 @@ public class StringCalculator {
                 
         if(numbers.startsWith("//")){
             String[] splitInput = numbers.split("\n", 2);
-            
             String newDelimeter = splitInput[0].substring(2);
-            delimeter += "|" + newDelimeter;
             
             numbers = splitInput[1];
+
+            if(newDelimeter.startsWith("[") && newDelimeter.endsWith("]")){
+                Pattern p = Pattern.compile("\\[(.*?)\\]");
+                Matcher m = p.matcher(newDelimeter);
+                while(m.find()){
+                    //escape using \Q and \E
+                    delimeter += "|\\Q" + m.group(1) + "\\E";
+                }
+            }else {
+                delimeter += "|\\Q" + newDelimeter + "\\E";
+            }
+            
         }
         
         String[] numbersArray = numbers.split(delimeter);
