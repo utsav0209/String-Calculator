@@ -32,8 +32,8 @@ public class StringCalculatorTest {
           { "1", 1, "String with single number should return number itself"},
           { "1,2", 3, "String with two numbers seperated by comma should return sum of two numbers"},
           { "1,2,3", 6, "String with n+1 numbers seperated by n commas should return sum of n+1 numbers"},
-          { "//;\n1;2;3", 6, "String with custom delimeter specified between // and '\\n' at the start of the input is accepted" },
-          { "//_\n1_2_3", 6, "String with custom delimeter specified between // and '\\n' at the start of the input is accepted" },
+          { "//;\n1;2;3", 6, "String with custom delimeter specified between // and '\\n' at the start of the input should be accepted" },
+          { "//_\n1_2_3", 6, "String with custom delimeter specified between // and '\\n' at the start of the input should be accepted" }
         });
     }
 
