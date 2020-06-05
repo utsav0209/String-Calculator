@@ -27,7 +27,8 @@ public class StringCalculatorTest {
     public static Collection primeNumbers() {
        return Arrays.asList(new Object[][] {
           { "", 0 },
-          { "1", 1 }
+          { "1", 1 },
+          { "1,2", 3}
        });
     }
 
