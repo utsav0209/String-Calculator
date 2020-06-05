@@ -31,7 +31,8 @@ public class StringCalculatorTest {
           { "", 0 , "Empty string should return zero"},
           { "1", 1, "String with single number should return number itself"},
           { "1,2", 3, "String with two numbers seperated by comma should return sum of two numbers"},
-          { "1,2,3", 6, "String with n+1 numbers seperated by n commas should return sum of n+1 numbers"}
+          { "1,2,3", 6, "String with n+1 numbers seperated by n commas should return sum of n+1 numbers"},
+          { "1\n2,3", 6, "String with numbers seperated by comma or '\\n' should return summ of all numbers" }
         });
     }
 
