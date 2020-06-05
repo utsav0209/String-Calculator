@@ -26,9 +26,9 @@ public class NegativesNotAllowedExceptionTest {
     @Parameterized.Parameters
     public static List<Object[]> testCasesList() {
         return Arrays.asList(new Object[][] {
-            { "-1", exceptionMessagePrefix + " " + "-1" },
-            { "-1,2", exceptionMessagePrefix + " " + "-1" },
-            { "1,-2,3", exceptionMessagePrefix + " " + "-2" },
+            { "-1", exceptionMessagePrefix + " " + "[-1]" },
+            { "-1,2", exceptionMessagePrefix + " " + "[-1]" },
+            { "1,-2,3", exceptionMessagePrefix + " " + "[-2]" },
             { "1,-2,-3", exceptionMessagePrefix + " " + "[-2, -3]" },
             { "//_\n1_-2_-3", exceptionMessagePrefix + " " + "[-2, -3]" },
             { "//;\n1;-2\n-3,4", exceptionMessagePrefix + " " + "[-2, -3]" },
