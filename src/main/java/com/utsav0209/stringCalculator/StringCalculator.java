@@ -12,7 +12,7 @@ public class StringCalculator {
      * @return sum of the numbers
      */
 
-    public static int add(String numbers) throws NegativesNotAllowedException{
+    public int add(String numbers) throws NegativesNotAllowedException{
         if(numbers.isEmpty()){
             return 0;
         }
