@@ -48,9 +48,9 @@ public class StringCalculatorTest {
           { "1001,1" , 1, "Numbers greater than 1000 should be ignored"},
           { "//_\n1_2,3\n1000", 1006, "Numbers greater than 1000 should be ignored"},
           { "//_\n1_2,3\n1001", 6, "Numbers greater than 1000 should be ignored"},
-          { "“//[***]\n1***2***3", 6, "Delimiter of any length inside [] should be accepted" },
-          { "“//[*]\n1*2*3", 6, "Delimiter of any length inside [] should be accepted" },
-          { "“//[\n1[2[3", 6, "Custom Delimiter [ should be accepted" },
+          { "//[***]\n1***2***3", 6, "Delimiter of any length inside [] should be accepted" },
+          { "//[*]\n1*2*3", 6, "Delimiter of any length inside [] should be accepted" },
+          { "//[\n1[2[3", 6, "Custom Delimiter [ should be accepted" }
         });
     }
 
