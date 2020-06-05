@@ -3,6 +3,7 @@ package com.utsav0209.stringCalculator;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import org.junit.runners.Parameterized;
@@ -17,13 +18,19 @@ public class StringCalculatorTest {
     private String inputString;
     private int expectedInteger;
     private String testCaseExplaination;
-
+    private static StringCalculator stringCalculator;
 
     public StringCalculatorTest(String inputString, int expectedInteger, String testCaseExplaination){
         this.inputString = inputString;
         this.expectedInteger = expectedInteger;
         this.testCaseExplaination = testCaseExplaination;
     }
+
+    @BeforeClass
+    public static void initStringCalculator(){
+        stringCalculator = new StringCalculator();
+    }
+
 
     @Parameterized.Parameters
     public static List<Object[]> testCasesList() {
@@ -42,7 +49,7 @@ public class StringCalculatorTest {
     @Test
     public void testAdd() {
         try{
-            assertEquals(testCaseExplaination, expectedInteger, StringCalculator.add(inputString));
+            assertEquals(testCaseExplaination, expectedInteger, stringCalculator.add(inputString));
         } catch(NegativesNotAllowedException e){
         }
     }
