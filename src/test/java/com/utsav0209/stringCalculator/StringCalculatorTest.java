@@ -42,7 +42,12 @@ public class StringCalculatorTest {
           { "1,2,3", 6, "String with n+1 numbers seperated by n commas should return sum of n+1 numbers"},
           { "//;\n1;2;3", 6, "String with custom delimiter specified between // and '\\n' at the start of the input should be accepted" },
           { "//_\n1_2_3", 6, "String with custom delimiter specified between // and '\\n' at the start of the input should be accepted" },
-          { "//_\n1_2,3\n4", 10, "String with custom delimiter input should also support default delimiters" }
+          { "//_\n1_2,3\n4", 10, "String with custom delimiter input should also support default delimiters" },
+          { "1000", 1000 , "Number less than or equals 1000 and greater than 0 should be returned as it is"},
+          { "1001", 0 , "Numbers greater than 1000 should be ignored"},
+          { "1001,1" , 1, "Numbers greater than 1000 should be ignored"},
+          { "//_\n1_2,3\n1000", 1006, "Numbers greater than 1000 should be ignored"},
+          { "//_\n1_2,3\n1001", 6, "Numbers greater than 1000 should be ignored"}
         });
     }
 
