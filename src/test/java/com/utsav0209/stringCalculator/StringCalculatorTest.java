@@ -16,27 +16,29 @@ public class StringCalculatorTest {
     
     private String inputString;
     private int expectedInteger;
+    private String testCaseExplaination;
 
 
-    public StringCalculatorTest(String inputString, int expectedInteger){
+    public StringCalculatorTest(String inputString, int expectedInteger, String testCaseExplaination){
         this.inputString = inputString;
         this.expectedInteger = expectedInteger;
+        this.testCaseExplaination = testCaseExplaination;
     }
 
     @Parameterized.Parameters
     public static Collection primeNumbers() {
         return Arrays.asList(new Object[][] {
-          { "", 0 },
-          { "1", 1 },
-          { "1,2", 3},
-          { "1,2,3", 6}
+          { "", 0 , "Empty string should return zero"},
+          { "1", 1, "String with single number should return number itself"},
+          { "1,2", 3, "String with two numbers seperated by comma should return sum of two numbers"},
+          { "1,2,3", 6, "String with n+1 numbers seperated by n commas should return sum of n+1 numbers"}
         });
     }
 
 
     @Test
     public void testAdd() {
-        assertEquals(expectedInteger, StringCalculator.add(inputString));
+        assertEquals(testCaseExplaination, expectedInteger, StringCalculator.add(inputString));
     }
 
 }
