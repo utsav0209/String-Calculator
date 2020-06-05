@@ -1,0 +1,8 @@
+#Maaven Build
+target
+
+#VSCode
+.vscode
+.classpath
+.project
+.settings
