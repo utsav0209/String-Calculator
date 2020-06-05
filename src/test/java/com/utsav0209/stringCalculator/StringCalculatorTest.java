@@ -1,7 +1,7 @@
 package com.utsav0209.stringCalculator;
 
-import java.util.Collection;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class StringCalculatorTest {
     }
 
     @Parameterized.Parameters
-    public static Collection primeNumbers() {
+    public static List<Object[]> testCasesList() {
         return Arrays.asList(new Object[][] {
           { "", 0 , "Empty string should return zero"},
           { "1", 1, "String with single number should return number itself"},
