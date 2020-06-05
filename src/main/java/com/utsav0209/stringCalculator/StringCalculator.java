@@ -40,8 +40,10 @@ public class StringCalculator {
             tempNum = Integer.parseInt(number);
             if(tempNum < 0){
                 negativeNumbers.add(tempNum);
+                continue;
             }
-            sum += tempNum;
+            if(tempNum <= 1000)
+                sum += tempNum;
         }
 
         if(negativeNumbers.size() > 0){
