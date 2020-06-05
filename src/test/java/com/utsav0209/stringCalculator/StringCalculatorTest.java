@@ -41,7 +41,10 @@ public class StringCalculatorTest {
 
     @Test
     public void testAdd() {
-        assertEquals(testCaseExplaination, expectedInteger, StringCalculator.add(inputString));
+        try{
+            assertEquals(testCaseExplaination, expectedInteger, StringCalculator.add(inputString));
+        } catch(NegativesNotAllowedException e){
+        }
     }
 
 }
