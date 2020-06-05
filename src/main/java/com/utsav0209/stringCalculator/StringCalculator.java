@@ -11,6 +11,7 @@ public class StringCalculator {
         if(numbers.isEmpty()){
             return 0;
         }
-        return -1;
+        
+        return Integer.parseInt(numbers);
     }
 }
