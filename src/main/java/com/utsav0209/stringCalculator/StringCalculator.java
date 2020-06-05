@@ -1,5 +1,7 @@
 package com.utsav0209.stringCalculator;
 
+import java.util.ArrayList;
+
 public class StringCalculator {
 
     private static String exceptionMessagePrefix = "negatives not allowed";
@@ -28,12 +30,19 @@ public class StringCalculator {
         }
         
         String[] numbersArray = numbers.split(delimeter);
+        ArrayList<Integer> negativeNumbers = new ArrayList<Integer>();
+        int tempNum;
 
         for(String number : numbersArray){
-            if(Integer.parseInt(number) < 0){
-                throw new NegativesNotAllowedException(exceptionMessagePrefix + " " + Integer.parseInt(number));
+            tempNum = Integer.parseInt(number);
+            if(tempNum < 0){
+                negativeNumbers.add(tempNum);
             }
-            sum += Integer.parseInt(number);
+            sum += tempNum;
+        }
+
+        if(negativeNumbers.size() > 0){
+            throw new NegativesNotAllowedException(exceptionMessagePrefix + " " + negativeNumbers.toString());
         }
 
         return sum;
