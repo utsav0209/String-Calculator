@@ -28,7 +28,7 @@ public class NegativesNotAllowedExceptionTest {
         return Arrays.asList(new Object[][] {
             { "-1", exceptionMessagePrefix + " " + "-1" },
             { "-1,2", exceptionMessagePrefix + " " + "-1" },
-            { "1,-2,-3", exceptionMessagePrefix + " " + "-2" },
+            { "1,-2,3", exceptionMessagePrefix + " " + "-2" },
         });
     }
 

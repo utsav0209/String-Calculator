@@ -1,13 +1,16 @@
 package com.utsav0209.stringCalculator;
 
 public class StringCalculator {
+
+    private static String exceptionMessagePrefix = "negatives not allowed";
+
      /**
      * 
      * @param numbers numbers passed as string for addition 
      * @return sum of the numbers
      */
 
-    public static int add(String numbers){
+    public static int add(String numbers) throws NegativesNotAllowedException{
         if(numbers.isEmpty()){
             return 0;
         }
@@ -27,6 +30,9 @@ public class StringCalculator {
         String[] numbersArray = numbers.split(delimeter);
 
         for(String number : numbersArray){
+            if(Integer.parseInt(number) < 0){
+                throw new NegativesNotAllowedException(exceptionMessagePrefix + " " + Integer.parseInt(number));
+            }
             sum += Integer.parseInt(number);
         }
 
