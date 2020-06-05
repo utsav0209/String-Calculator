@@ -5,14 +5,17 @@ import java.util.ArrayList;
 public class StringCalculator {
 
     private static String exceptionMessagePrefix = "negatives not allowed";
+    private int callsCount = 0;
 
      /**
      * 
      * @param numbers numbers passed as string for addition 
      * @return sum of the numbers
      */
-
     public int add(String numbers) throws NegativesNotAllowedException{
+        
+        callsCount++;
+
         if(numbers.isEmpty()){
             return 0;
         }
@@ -46,5 +49,9 @@ public class StringCalculator {
         }
 
         return sum;
+    }
+
+    public int getCallsCount() {
+        return callsCount;
     }
 }
