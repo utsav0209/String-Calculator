@@ -3,6 +3,7 @@ package com.utsav0209.stringCalculator;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import org.junit.runners.Parameterized;
@@ -16,11 +17,17 @@ public class NegativesNotAllowedExceptionTest {
     
     private String inputString;
     private String expectedString;
-    private static String exceptionMessagePrefix = "negatives not allowed";
+    private static StringCalculator stringCalculator;
 
+    private static String exceptionMessagePrefix = "negatives not allowed";
     public NegativesNotAllowedExceptionTest(String inputString , String expectedString){
         this.inputString = inputString;
         this.expectedString = expectedString;
+    }
+
+    @BeforeClass
+    public static void initStringCalculator(){
+        stringCalculator = new StringCalculator();
     }
 
     @Parameterized.Parameters
@@ -37,13 +44,13 @@ public class NegativesNotAllowedExceptionTest {
 
     @Test(expected = NegativesNotAllowedException.class)
     public void testNegtiveNumbers() throws NegativesNotAllowedException{
-        StringCalculator.add(inputString);
+        stringCalculator.add(inputString);
     }
 
     @Test
     public void testNegtiveNumbersExceptionMessage() {
         try {
-            StringCalculator.add(inputString);
+            stringCalculator.add(inputString);
         } catch(NegativesNotAllowedException e){
             assertEquals(expectedString, e.getMessage());
         }
