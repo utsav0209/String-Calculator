@@ -12,10 +12,19 @@ public class StringCalculator {
             return 0;
         }
 
+        int sum = 0;
         String delimeter = ",|\n";
+                
+        if(numbers.startsWith("//")){
+            String[] splitInput = numbers.split("\n", 2);
+            
+            String newDelimeter = splitInput[0].substring(2);
+            delimeter += "|" + newDelimeter;
+            
+            numbers = splitInput[1];
+        }
         
         String[] numbersArray = numbers.split(delimeter);
-        int sum = 0;
 
         for(String number : numbersArray){
             sum += Integer.parseInt(number);
